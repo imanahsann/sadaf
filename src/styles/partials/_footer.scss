@@ -1,0 +1,18 @@
+footer {
+    background: $accent-color;
+    color: $highlight-color;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer a {
+    color: $highlight-color;
+}

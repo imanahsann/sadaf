@@ -1,0 +1,15 @@
+header {
+    padding-top: 100px;
+}
+
+header a {
+    color: $secondary-color;
+}
+
+.description {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 100;
+    color: $secondary-color-lighter;
+}

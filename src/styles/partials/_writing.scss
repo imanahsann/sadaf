@@ -1,0 +1,37 @@
+.articleNav {
+    margin: 50px 0 0 0;
+}
+
+.articleNav ul {
+    padding: 0;
+    list-style: none;
+}
+
+.articleNav li {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 8px 20px;
+    &:first-child {
+        background: $highlight-color;
+    }
+    &:nth-child(2) {
+        background: $accent-color;
+    }
+    &:nth-child(3) {
+        background: $pastel-option;
+    }
+    &:nth-child(4) {
+        background: $pastel-secondary-option;
+    }
+    &.current {
+        border: 1px solid $secondary-color;
+        font-weight: 700;
+    }
+}
+
+.articleGrid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 0 53px 0;
+}
