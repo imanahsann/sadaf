@@ -6,6 +6,12 @@ $highlight-color: #FDA4C3;
 $pastel-option: #FDE8A4;
 $pastel-secondary-option: #F1D7F8;
 
+$break-xlarge: 1200px;
+$break-large: 992px;
+$break-medium: 768px;
+$break-small: 576px;
+$break-xsmall: 320px;
+
 html {
     font-size: 62.5%;
     // 10px
@@ -21,7 +27,7 @@ body {
 
 .wrapper {
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 50px auto 103px;
     padding: 0 100px;
 }
 
@@ -34,10 +40,6 @@ a {
     text-decoration: none;
     opacity: 1;
     transition: opacity 0.3s;
-}
-
-a:hover {
-    opacity: 0.5;
 }
 
 h1 {

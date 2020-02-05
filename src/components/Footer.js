@@ -10,7 +10,7 @@ class Footer extends Component {
                     <nav className="main">
                         <ul>
                             <li><Link to="/about">About</Link></li>
-                            <li><Link to="/writing">Writing</Link></li>
+                            <li><Link to="/">Writing</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </nav>

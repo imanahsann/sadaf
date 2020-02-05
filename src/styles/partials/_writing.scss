@@ -1,5 +1,5 @@
 .articleNav {
-    margin: 50px 0 0 0;
+    margin: 0;
 }
 
 .articleNav ul {
@@ -12,6 +12,7 @@
     text-transform: uppercase;
     font-size: 1.2rem;
     padding: 8px 20px;
+    border-bottom: 1px solid $primary-color;
     &:first-child {
         background: $highlight-color;
     }
@@ -30,8 +31,32 @@
     }
 }
 
+.articleNav li:hover, .articleNav li.active {
+    cursor: pointer;
+    border-bottom: 1px solid $secondary-color;
+}
+
 .articleGrid {
     display: flex;
     flex-wrap: wrap;
-    margin: 50px 0 53px 0;
+    margin: 45px 0 0 0;
+}
+
+.pagination {
+    margin: 0 0 83px 0;
+}
+
+.pagination ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination li.link:hover {
+    cursor: pointer;
 }

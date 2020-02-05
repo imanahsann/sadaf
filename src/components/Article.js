@@ -81,7 +81,7 @@ class Article extends Component {
                         {ReactHtmlParser(this.props.title)}
                     </div>
                     <div className="publication">
-                        <a href={this.props.link} target="_blank" rel="noopener noreferrer">@ {this.props.publication}</a>
+                        {this.props.publication}
                     </div>
                 </a>
             </div>
