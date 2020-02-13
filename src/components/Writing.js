@@ -11,8 +11,14 @@ class Writing extends Component {
         this.state = {
             // loading
             loading: true,
-            //retrieved articles
+            // retrieved articles
             articles: [],
+            //cached articles
+            articleCache: {
+                featured: {},
+                recent: {},
+                reviews: {}
+            },
             // total pages
             totalPages: undefined,
             // current page
@@ -37,33 +43,49 @@ class Writing extends Component {
     }
 
     articleRetrieval = (category, tag, page, filter) => {
+        // update state to loading
         this.setState({
             loading: true
         })
+
+        // update url
         let url = '';
         if (category || tag) {
             url = `http://doorinthefloor.net/sadaf/wp-json/wp/v2/posts?${category ? `categories=${category}&` : ''}${tag ? `tags=${tag}&` : ''}${page ? `per_page=12&page=${page}&` : 'per_page=12&'}_embed`;
         }
-
         else {
             url = `http://doorinthefloor.net/sadaf/wp-json/wp/v2/posts?${page ? `per_page=12&page=${page}&` : ''}_embed`;
         }
-        // ajax request
-        axios({
-            url: url,
-            method: 'GET',
-            dataType: 'json'
-        }).then((response) => {
-            this.setState({
-                articles: response.data,
-                totalPages: response.headers['x-wp-totalpages'],
-                currentPage: page,
-                category: category,
-                tag: tag,
-                filter: filter,
+
+        // check if articles already cached
+        if ( this.state.articleCache[filter][page] ) {
+            this.setState ({
+                articles: this.state.articleCache[filter][page],
                 loading: false
-            });
-        })
+            })
+        }
+
+        // if not, retreive articles and cache
+        else {
+            let articleCacheUpdate = this.state.articleCache;
+            axios({
+                url: url,
+                method: 'GET',
+                dataType: 'json'
+            }).then((response) => {
+                articleCacheUpdate[filter][page] = response.data;
+                this.setState({
+                    articles: response.data,
+                    totalPages: response.headers['x-wp-totalpages'],
+                    currentPage: page,
+                    category: category,
+                    tag: tag,
+                    filter: filter,
+                    loading: false,
+                    articleCache: articleCacheUpdate
+                });
+            })
+        }
     };
 
     render() {
