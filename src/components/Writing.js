@@ -76,8 +76,10 @@ class Writing extends Component {
                         <Link to="/writing?tag=42&page=1&filter=reviews"><li className={(this.state.filter === 'reviews' ? 'active' : '')}>Reviews</li></Link>
                     </ul>
                 </div>
-                <div className={this.state.loading ? 'loader loading' : 'loader'}>
-                    <p>LOADING...</p>
+                <div className="loading-container">
+                    <div className={this.state.loading ? 'loader loading' : 'loader'}>
+                        <p>LOADING</p>
+                    </div>
                 </div>
                 <div className={this.state.loading ? 'articleGrid loading' : 'articleGrid'}>
                     {this.state.articles.map((article) => {

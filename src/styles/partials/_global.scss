@@ -53,12 +53,47 @@ h1 {
     text-align: center;
 }
 
+.loading-container {
+    text-align: center;
+}
+
 .loader {
     display: none;
+    padding: 150px 0;
+    font-size: 1.2rem;
+    width: 78px;
+    text-align: left;
+}
+
+.loader p:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "...";
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 3em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 3em;
+  }
+}
+
+.loader p {
+    display: inline-block;
+    margin: 0;
 }
 
 .loader.loading {
-    display: block;
+    display: inline-block;
 }
 
 .loading.articleGrid {
