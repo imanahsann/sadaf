@@ -5,6 +5,8 @@ class About extends Component {
     constructor() {
         super()
         this.state = {
+            // loading
+            loading: true,
             //image
             image: '',
             // bio
@@ -22,9 +24,9 @@ class About extends Component {
         }).then((response) => {
             this.setState({
                 image: response.data._embedded["wp:featuredmedia"]["0"].source_url,
-                bio: response.data.content.rendered
+                bio: response.data.content.rendered,
+                loading: false
             });
-            console.log(response);
         })
     }
 

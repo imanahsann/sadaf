@@ -53,6 +53,18 @@ h1 {
     text-align: center;
 }
 
+.loader {
+    display: none;
+}
+
+.loader.loading {
+    display: block;
+}
+
+.loading.articleGrid {
+    display: none;
+}
+
 nav {
     text-transform: uppercase;
     font-size: 2.5rem;

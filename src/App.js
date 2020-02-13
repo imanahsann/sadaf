@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import queryString from 'query-string';
 import './styles/App.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,9 +12,9 @@ import About from './components/About';
 import Writing from './components/Writing';
 import Contact from './components/Contact';
 import Four04 from './components/Four04';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 library.add(fab);
 
 class App extends Component {
@@ -24,10 +25,10 @@ class App extends Component {
         <Router>
           <Header />
             <Switch>
+              <Route exact path="/" render={(props) => <Writing {...props} category={6} page={1} filter={'featured'} />} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/page/:page" component={Writing} />
-              <Route exact path="/" component={Writing} />
+              <Route path="/writing" render={(props) => <Writing {...props} category={queryString.parse(props.location.search).category} tag={queryString.parse(props.location.search).tag} page={queryString.parse(props.location.search).page} filter={queryString.parse(props.location.search).filter} />} />
               <Route component={Four04} />
             </Switch>
           <Footer />
