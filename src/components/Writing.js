@@ -60,7 +60,12 @@ class Writing extends Component {
         // check if articles already cached
         if ( this.state.articleCache[filter][page] ) {
             this.setState ({
-                articles: this.state.articleCache[filter][page],
+                articles: this.state.articleCache[filter][page].articles,
+                totalPages: this.state.articleCache[filter][page].totalPages,
+                currentPage: page,
+                category: category,
+                tag: tag,
+                filter: filter,
                 loading: false
             })
         }
@@ -73,7 +78,10 @@ class Writing extends Component {
                 method: 'GET',
                 dataType: 'json'
             }).then((response) => {
-                articleCacheUpdate[filter][page] = response.data;
+                articleCacheUpdate[filter][page] = {
+                    articles: response.data,
+                    totalPages: response.headers['x-wp-totalpages']
+                };
                 this.setState({
                     articles: response.data,
                     totalPages: response.headers['x-wp-totalpages'],
@@ -114,7 +122,7 @@ class Writing extends Component {
 
                         <li>{this.state.currentPage} of <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${this.state.totalPages}&filter=${this.state.filter}`}>{this.state.totalPages}</Link></li>
 
-                        <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${parseInt(this.state.currentPage) + 1}&filter=${this.state.filter}`}><li>{(this.state.currentPage < this.state.totalPages) ? 'Next ' + String.fromCharCode(187) : ''}</li></Link>
+                        <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${parseInt(this.state.currentPage) + 1}&filter=${this.state.filter}`}><li>{(parseInt(this.state.currentPage) < parseInt(this.state.totalPages)) ? 'Next ' + String.fromCharCode(187) : '' }</li></Link>
                     </ul>
                 </div>
             </div>
