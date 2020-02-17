@@ -45,15 +45,30 @@
 
 .pagination {
     margin: 0 0 83px 0;
+    font-size: 1.1rem;
 }
 
 .pagination ul {
     padding: 0;
     list-style: none;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .pagination li {
     display: inline-block;
+}
+
+.back {
+    grid-column: 1 / 2;
+}
+
+.page {
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+.next {
+    grid-column: 3 / 4;
+    text-align: right;
 }

@@ -1,5 +1,8 @@
 header {
     padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 header a {
@@ -9,7 +12,10 @@ header a {
 .description {
     display: block;
     text-align: center;
-    font-size: 2rem;
+    text-transform: uppercase;
+    font-size: 1.7rem;
     font-weight: 100;
     color: $secondary-color-lighter;
+    line-height: 1;
+    transform: rotate(3deg);
 }

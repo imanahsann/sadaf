@@ -34,7 +34,13 @@ class About extends Component {
         return (
             <div className="wrapper about">
                 <img src={this.state.image} alt="Sadaf Ahsan"/>
-                <div className="bio" dangerouslySetInnerHTML={{ __html: this.state.bio}}>
+                <div className="about-container">
+                    <div className="bio" dangerouslySetInnerHTML={{ __html: this.state.bio}}>
+                    </div>
+                    <div className="contact">
+                        <h2>Contact</h2>
+                        <p>Email: hello [at] sadafahsan.com</p>
+                    </div>
                 </div>
             </div>
         );

@@ -118,11 +118,11 @@ class Writing extends Component {
                 </div>
                 <div className="pagination">
                     <ul>
-                        <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${parseInt(this.state.currentPage) - 1}&filter=${this.state.filter}`}><li>{(parseInt(this.state.currentPage) !== 1) ? String.fromCharCode(171) + ' Previous' : ''}</li></Link>
+                        <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${parseInt(this.state.currentPage) - 1}&filter=${this.state.filter}`} className={(parseInt(this.state.currentPage) !== 1) ? 'back' : 'invisible back'} ><li className="back">{String.fromCharCode(171) + ' Previous'}</li></Link>
 
-                        <li>{this.state.currentPage} of <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${this.state.totalPages}&filter=${this.state.filter}`}>{this.state.totalPages}</Link></li>
+                        <li className="page">{this.state.currentPage} of <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${this.state.totalPages}&filter=${this.state.filter}`}>{this.state.totalPages}</Link></li>
 
-                        <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${parseInt(this.state.currentPage) + 1}&filter=${this.state.filter}`}><li>{(parseInt(this.state.currentPage) < parseInt(this.state.totalPages)) ? 'Next ' + String.fromCharCode(187) : '' }</li></Link>
+                        <Link to={`/writing?${this.state.category ? `category=${this.state.category}&` : ''}${this.state.tag ? `tag=${this.state.tag}&` : ''}page=${parseInt(this.state.currentPage) + 1}&filter=${this.state.filter}`} className={(parseInt(this.state.currentPage) < parseInt(this.state.totalPages)) ? 'next' : 'invisible next' } ><li>{'Next ' + String.fromCharCode(187)}</li></Link>
                     </ul>
                 </div>
             </div>
