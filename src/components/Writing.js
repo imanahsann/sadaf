@@ -104,6 +104,7 @@ class Writing extends Component {
                         <Link to="/"><li className={(this.state.filter === 'featured' ? 'active' : '')}>Featured</li></Link>
                         <Link to="/writing?page=1&filter=recent"><li className={(this.state.filter === 'recent' ? 'active' : '')}>Recent</li></Link>
                         <Link to="/writing?tag=42&page=1&filter=reviews"><li className={(this.state.filter === 'reviews' ? 'active' : '')}>Reviews</li></Link>
+                        <Link><li>News - update</li></Link>
                     </ul>
                 </div>
                 <div className="loading-container">

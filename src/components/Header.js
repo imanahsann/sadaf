@@ -6,7 +6,7 @@ class Header extends Component {
             <header>
                 <a href="http://sadafahsan.com">
                     <h1>
-                        Sadaf.
+                        Sadaf
                     </h1>
                 </a>
                 <span className="description">
