@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import {
+    Link
+} from 'react-router-dom';
 
 class Header extends Component {
     render() {
         return (
             <header>
-                <a href="http://sadafahsan.com">
+                <Link to="/">
                     <h1>
                         Sadaf
                     </h1>
-                </a>
+                </Link>
                 <span className="description">
                     writer/editor/web producer
                 </span>

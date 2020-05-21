@@ -35,13 +35,13 @@ class App extends Component {
       // total pages
       totalPages: undefined,
       // current page
-      currentPage: undefined,
+      currentPage: 1,
       // category
-      category: undefined,
+      category: 6,
       // tag
       tag: undefined,
       // active filter
-      filter: undefined
+      filter: 'featured'
     }
   }
 
@@ -106,13 +106,34 @@ class App extends Component {
           <Header />
             <Switch>
 
-              <Route exact path="/" render={(props) => <Writing {...props} category={6} page={1} filter={'featured'} />} />
+              <Route exact path="/" render={(props) => <Writing
+                {...props}
+                articleRetrieval={this.articleRetrieval}
+                loading={this.state.loading}
+                articles={this.state.articles}
+                articleCache={this.state.articleCache}
+                totalPages={this.state.totalPages}
+                currentPage={1}
+                category={6}
+                tag={undefined}
+                filter={'featured'}
+              />} />
 
               <Route path="/about" component={About} />
 
               <Route path="/contact" component={Contact} />
 
-              <Route path="/writing" render={(props) => <Writing {...props} category={queryString.parse(props.location.search).category} tag={queryString.parse(props.location.search).tag} page={queryString.parse(props.location.search).page} filter={queryString.parse(props.location.search).filter} />} />
+              <Route path="/writing" render={(props) => <Writing
+                {...props}
+                articleRetrieval={this.articleRetrieval}
+                loading={this.state.loading}
+                articles={this.state.articles}
+                articleCache={this.state.articleCache}
+                totalPages={this.state.totalPages}
+                currentPage={queryString.parse(props.location.search).page}
+                category={queryString.parse(props.location.search).category} tag={queryString.parse(props.location.search).tag}
+                filter={queryString.parse(props.location.search).filter}
+              />} />
 
               <Route component={Four04} />
             </Switch>

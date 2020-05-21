@@ -7,12 +7,12 @@ import Article from './Article';
 class Writing extends Component {
 
     componentDidMount() {
-        this.props.articleRetrieval(this.props.category, this.props.tag, this.props.page, this.props.filter);
+        this.props.articleRetrieval(this.props.category, this.props.tag, this.props.currentPage, this.props.filter);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.location.key !== this.props.location.key) {
-            this.props.articleRetrieval(this.props.category, this.props.tag, this.props.page, this.props.filter);
+            this.props.articleRetrieval(this.props.category, this.props.tag, this.props.currentPage, this.props.filter);
         }
     }
 
@@ -24,7 +24,7 @@ class Writing extends Component {
                         <Link to="/"><li className={(this.props.filter === 'featured' ? 'active' : '')}>Featured</li></Link>
                         <Link to="/writing?page=1&filter=recent"><li className={(this.props.filter === 'recent' ? 'active' : '')}>Recent</li></Link>
                         <Link to="/writing?tag=42&page=1&filter=reviews"><li className={(this.props.filter === 'reviews' ? 'active' : '')}>Reviews</li></Link>
-                        <Link><li>News - update</li></Link>
+                        <Link to="/writing?tag=44&page=1&filter=news"><li>News</li></Link>
                     </ul>
                 </div>
                 <div className="loading-container">
