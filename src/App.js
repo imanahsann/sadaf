@@ -24,13 +24,18 @@ class App extends Component {
     this.state = {
       // loading
       loading: true,
+      //image
+      image: '',
+      // bio
+      bio: '',
       // retrieved articles
       articles: [],
       //cached articles
       articleCache: {
         featured: {},
         recent: {},
-        reviews: {}
+        reviews: {},
+        news: {}
       },
       // total pages
       totalPages: undefined,
@@ -43,6 +48,26 @@ class App extends Component {
       // active filter
       filter: 'featured'
     }
+  }
+
+  componentDidMount() {
+    let url = `http://doorinthefloor.net/sadaf/wp-json/wp/v2/pages/14?_embed`;
+    // get about page
+    axios({
+      url: url,
+      method: 'GET',
+      dataType: 'json'
+    }).then((response) => {
+      this.setState({
+        image: response.data._embedded["wp:featuredmedia"]["0"].source_url,
+        bio: response.data.content.rendered,
+        loading: false
+      })
+      // .then(() => {
+      //   this.articleRetrieval(this.props.category, this.props.tag, this.props.currentPage, this.props.filter);
+      // })
+    })
+
   }
 
   articleRetrieval = (category, tag, page, filter) => {
@@ -119,7 +144,11 @@ class App extends Component {
                 filter={'featured'}
               />} />
 
-              <Route path="/about" component={About} />
+              <Route path="/about" render={(props) => <About
+                {...props}
+                image={this.state.image}
+                bio={this.state.bio}
+              />} />
 
               <Route path="/contact" component={Contact} />
 
