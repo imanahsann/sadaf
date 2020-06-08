@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import About from './components/About';
 import Writing from './components/Writing';
 import Contact from './components/Contact';
-import Four04 from './components/Four04';
+import NotFound from './components/NotFound';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -60,12 +60,9 @@ class App extends Component {
     }).then((response) => {
       this.setState({
         image: response.data._embedded["wp:featuredmedia"]["0"].source_url,
-        bio: response.data.content.rendered,
-        loading: false
+        bio: response.data.content.rendered
       })
-      // .then(() => {
-      //   this.articleRetrieval(this.props.category, this.props.tag, this.props.currentPage, this.props.filter);
-      // })
+      this.articleRetrieval(this.state.category, this.state.tag, this.state.currentPage, this.state.filter);
     })
 
   }
@@ -98,7 +95,7 @@ class App extends Component {
       })
     }
 
-    // if not, retreive articles and cache
+    // if not, retrieve articles and cache
     else {
       let articleCacheUpdate = this.state.articleCache;
       axios({
@@ -164,7 +161,7 @@ class App extends Component {
                 filter={queryString.parse(props.location.search).filter}
               />} />
 
-              <Route component={Four04} />
+              <Route component={NotFound} />
             </Switch>
           <Footer />
         </Router>

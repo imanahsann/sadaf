@@ -33,7 +33,7 @@ class Writing extends Component {
                         return <Article key={article.id} title={article.content.rendered} link={article.Link} publication={article.Publication} image={article._embedded["wp:featuredmedia"] ? `${article._embedded["wp:featuredmedia"]["0"].source_url}` : ''} date={article.date} />
                     })}
                 </div>
-                <div className="pagination">
+                <div className={this.props.loading ? 'pagination loading' : 'pagination'}>
                     <ul>
                         <Link to={`/writing?${this.props.category ? `category=${this.props.category}&` : ''}${this.props.tag ? `tag=${this.props.tag}&` : ''}page=${parseInt(this.props.currentPage) - 1}&filter=${this.props.filter}`} className={(parseInt(this.props.currentPage) !== 1) ? 'back' : 'invisible back'} ><li className="back">{String.fromCharCode(171) + ' Previous'}</li></Link>
 

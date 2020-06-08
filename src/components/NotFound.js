@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Four04 extends Component {
+class NotFound extends Component {
     render() {
         return (
-            <div>
+            <div className="wrapper">
                 <p>PAGE DOES NOT EXIST.</p>
             </div>
         )
     }
 }
 
-export default Four04;
+export default NotFound;

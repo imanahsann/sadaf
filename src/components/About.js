@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Contact from './Contact';
 
 class About extends Component {
     render() {
@@ -8,10 +9,7 @@ class About extends Component {
                 <div className="about-container">
                     <div className="bio" dangerouslySetInnerHTML={{ __html: this.props.bio}}>
                     </div>
-                    <div className="contact">
-                        <h2>Contact</h2>
-                        <p>Email: hello [at] sadafahsan.com</p>
-                    </div>
+                    <Contact />
                 </div>
             </div>
         );
