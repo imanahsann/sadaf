@@ -7,7 +7,9 @@ class Contact extends Component {
         this.state = {
             name: '',
             email: '',
-            message: ''
+            message: '',
+            disabled: '',
+            sent: false
         }
     }
 
@@ -25,19 +27,23 @@ class Contact extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state);
+        this.setState({
+            disabled: 'disabled'
+        })
         axios({
             method: 'post',
             dataType: "jsonp",
             url: "https://intense-scrubland-47998.herokuapp.com/https://formsubmit.co/ajax/05a97d1ec3e214cf35cdfa56f862c9ba",
-            data: this.state
+            data: {
+                name: this.state.name,
+                email: this.state.email,
+                message: this.state.message
+            }
         }).then((response) => {
-            console.log(response);
             if (response.data.success) {
-                alert("Message Sent.");
                 this.resetForm()
             } else if (response.data.status === 'fail') {
-                alert("Message failed to send.")
+                alert("Message failed to send.");
             }
         })
     }
@@ -46,7 +52,9 @@ class Contact extends Component {
         this.setState({
             name: '',
             email: '',
-            message: ''
+            message: '',
+            disabled: '',
+            sent: true
         })
     }
 
@@ -55,7 +63,7 @@ class Contact extends Component {
             <div id="contact" className="wrapper contact">
                 <h2>Contact</h2>
                 <p>Email: hello [at] sadafahsan.com</p>
-                <form onSubmit={this.handleSubmit.bind(this)} method="POST">
+                <form onSubmit={this.handleSubmit.bind(this)} method="POST" className={this.state.sent ? 'invisible' : ''}>
                     <div>
                         <label htmlFor="name">Name</label>
                         <input type="text" name="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
@@ -68,8 +76,11 @@ class Contact extends Component {
                         <label htmlFor="message">Message</label>
                         <textarea rows="5" name="message" value={this.state.message} onChange={this.onMessageChange.bind(this)}></textarea>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={this.state.disabled}>Submit</button>
                 </form>
+                <div className={this.state.sent ? '' : 'invisible'}>
+                    <p>Thank you for reaching out!</p>
+                </div>
             </div>
         );
     }
