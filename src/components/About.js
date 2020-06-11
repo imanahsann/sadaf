@@ -5,7 +5,9 @@ class About extends Component {
     render() {
         return (
             <div className="wrapper about">
-                <img src={this.props.image} alt="Sadaf Ahsan"/>
+                <div className="avatar-container">
+                    <img src={this.props.image} alt="Sadaf Ahsan"/>
+                </div>
                 <div className="about-container">
                     <div className="bio" dangerouslySetInnerHTML={{ __html: this.props.bio}}>
                     </div>

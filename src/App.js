@@ -35,7 +35,10 @@ class App extends Component {
         featured: {},
         recent: {},
         reviews: {},
-        news: {}
+        arts: {},
+        news: {},
+        interviews: {},
+        food: {}
       },
       // total pages
       totalPages: undefined,

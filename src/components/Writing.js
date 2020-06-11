@@ -20,7 +20,10 @@ class Writing extends Component {
                         <Link to="/"><li className={(this.props.filter === 'featured' ? 'active' : '')}>Featured</li></Link>
                         <Link to="/writing?page=1&filter=recent"><li className={(this.props.filter === 'recent' ? 'active' : '')}>Recent</li></Link>
                         <Link to="/writing?tag=42&page=1&filter=reviews"><li className={(this.props.filter === 'reviews' ? 'active' : '')}>Reviews</li></Link>
-                        <Link to="/writing?tag=44&page=1&filter=news"><li>News</li></Link>
+                        <Link to="/writing?tag=2&page=1&filter=arts"><li className={(this.props.filter === 'arts' ? 'active' : '')}>Arts</li></Link>
+                        <Link to="/writing?tag=44&page=1&filter=news"><li className={(this.props.filter === 'news' ? 'active' : '')}>News</li></Link>
+                        <Link to="/writing?tag=35&page=1&filter=interviews"><li className={(this.props.filter === 'interviews' ? 'active' : '')}>Interviews</li></Link>
+                        <Link to="/writing?tag=49&page=1&filter=food"><li className={(this.props.filter === 'food' ? 'active' : '')}>Food</li></Link>
                     </ul>
                 </div>
                 <div className="loading-container">
