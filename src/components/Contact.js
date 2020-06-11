@@ -9,7 +9,9 @@ class Contact extends Component {
             email: '',
             message: '',
             disabled: '',
-            sent: false
+            sending: false,
+            sent: false,
+            error: false
         }
     }
 
@@ -28,7 +30,8 @@ class Contact extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.setState({
-            disabled: 'disabled'
+            disabled: 'disabled',
+            sending: true
         })
         axios({
             method: 'post',
@@ -41,9 +44,10 @@ class Contact extends Component {
             }
         }).then((response) => {
             if (response.data.success) {
+                console.log(response);
                 this.resetForm()
             } else if (response.data.status === 'fail') {
-                alert("Message failed to send.");
+                this.resetFormError()
             }
         })
     }
@@ -54,7 +58,21 @@ class Contact extends Component {
             email: '',
             message: '',
             disabled: '',
-            sent: true
+            sending: false,
+            sent: true,
+            error: false
+        })
+    }
+
+    resetFormError() {
+        this.setState({
+            name: '',
+            email: '',
+            message: '',
+            disabled: '',
+            sending: false,
+            sent: false,
+            error: true
         })
     }
 
@@ -63,6 +81,9 @@ class Contact extends Component {
             <div id="contact" className="wrapper contact">
                 <h2>Contact</h2>
                 <p>Email: hello [at] sadafahsan.com</p>
+                <div className={this.state.error ? '' : 'invisible'}>
+                    <p>Unfortunately, there was a problem submitting your message. Please try again or send me an email!</p>
+                </div>
                 <form onSubmit={this.handleSubmit.bind(this)} method="POST" className={this.state.sent ? 'invisible' : ''}>
                     <div>
                         <label htmlFor="name">Name</label>
@@ -76,7 +97,7 @@ class Contact extends Component {
                         <label htmlFor="message">Message</label>
                         <textarea rows="5" name="message" value={this.state.message} onChange={this.onMessageChange.bind(this)}></textarea>
                     </div>
-                    <button type="submit" disabled={this.state.disabled}>Submit</button>
+                    <button type="submit" disabled={this.state.disabled}>{this.state.sending ? "Sending..." : "Submit"}</button>
                 </form>
                 <div className={this.state.sent ? '' : 'invisible'}>
                     <p>Thank you for reaching out!</p>
