@@ -14,43 +14,38 @@
         font-size: 1.2rem;
         font-weight: 400;
         padding: 8px 20px;
+        opacity: 1;
+        transition: opacity 0.3s;
         &:hover {
             cursor: pointer;
+            opacity: 0.7;
         }
     }
     &:first-child li {
         background: $highlight-color;
         border: 1px solid $highlight-color;
-        &.active, &:hover {
-            border: 1px solid $secondary-color;
-        }
     }
     &:nth-child(2) li, &:nth-child(6) li  {
         background: $accent-color;
         border: 1px solid $accent-color;
-        &.active, &:hover {
-            border: 1px solid $secondary-color;
-        }
     }
     &:nth-child(3) li, &:nth-child(7) li  {
         background: $pastel-option;
         border: 1px solid $pastel-option;
-        &.active, &:hover {
-            border: 1px solid $secondary-color;
-        }
     }
     &:nth-child(4) li, &:nth-child(8) li  {
         background: $pastel-secondary-option;
         border: 1px solid $pastel-secondary-option;
-        &.active, &:hover {
-            border: 1px solid $secondary-color;
-        }
     }
     &:nth-child(5) li {
         background: $pastel-tertiary-option;
         border: 1px solid $pastel-tertiary-option;
-        &.active, &:hover {
-            border: 1px solid $secondary-color;
+    }
+    li.active {
+        border: 1px solid $secondary-color;
+        &:hover {
+            opacity: 1;
+            cursor: default;
         }
     }
 }
@@ -79,6 +74,19 @@
 
 .pagination li {
     display: inline-block;
+    // opacity: 1;
+    // transition: opacity 0.3s;
+    // &:hover {
+    //     opacity: 0.7;
+    // }
+}
+
+.pagination a {
+    opacity: 1;
+    transition: 0.3s;
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .back {

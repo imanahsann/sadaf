@@ -6,6 +6,14 @@ header a {
     color: $secondary-color;
 }
 
+header h1 {
+    opacity: 1;
+    transition: opacity 0.3s;
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
 .description {
     display: block;
     text-align: center;

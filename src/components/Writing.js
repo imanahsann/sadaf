@@ -6,6 +6,10 @@ import Article from './Article';
 
 class Writing extends Component {
 
+    componentDidMount() {
+        this.props.articleRetrieval(this.props.category, this.props.tag, this.props.currentPage, this.props.filter);
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.location.key !== this.props.location.key) {
             this.props.articleRetrieval(this.props.category, this.props.tag, this.props.currentPage, this.props.filter);

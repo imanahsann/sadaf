@@ -1,0 +1,80 @@
+.contact {
+    font-size: 1.3rem;
+}
+
+.contact.wrapper {
+    max-width: 800px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name, .email {
+    flex: calc(50% - 7.5px) 0 0;
+    max-width: 292.5px;
+}
+
+.name {
+    margin-right: 15px;
+}
+
+.message, .submit {
+    flex: 100% 0 0;
+    max-width: 600px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+input, textarea, input:focus {
+    padding: 10px 15px;
+    border-radius: 0;
+    border: 1px solid $secondary-color;
+    background: none;
+    color: $secondary-color;
+    font-weight: 300;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    background: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: $secondary-color;
+  -webkit-box-shadow: 0 0 0px 1000px $primary-color inset;
+  transition: background-color 5000s ease-in-out 0s;
+  font-size: 1rem;
+}
+
+input:-webkit-autofill::first-line {
+    font-size: 1.3rem;
+}
+
+label {
+    padding-bottom: 7px;
+    font-weight: 400;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 0;
+    background: none;
+    color: $secondary-color;
+    border: 1px solid $secondary-color;
+    font-weight: 400;
+    text-transform: uppercase;
+    &:hover {
+        background: $highlight-color;
+    }
+}

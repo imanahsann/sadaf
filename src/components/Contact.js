@@ -79,25 +79,24 @@ class Contact extends Component {
     render() {
         return (
             <div id="contact" className="wrapper contact">
-                <h2>Contact</h2>
                 <p>Email: hello [at] sadafahsan.com</p>
                 <div className={this.state.error ? '' : 'invisible'}>
                     <p>Unfortunately, there was a problem submitting your message. Please try again or send me an email!</p>
                 </div>
                 <form onSubmit={this.handleSubmit.bind(this)} method="POST" className={this.state.sent ? 'invisible' : ''}>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <input type="text" name="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+                    <div className="name">
+                        {/* <label htmlFor="name">Name</label> */}
+                        <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
                     </div>
-                    <div>
-                        <label htmlFor="exampleInputEmail1">Email</label>
-                        <input type="email" name="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+                    <div className="email">
+                        {/* <label htmlFor="exampleInputEmail1">Email</label> */}
+                        <input type="email" name="email" placeholder="Email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
                     </div>
-                    <div>
-                        <label htmlFor="message">Message</label>
-                        <textarea rows="5" name="message" value={this.state.message} onChange={this.onMessageChange.bind(this)}></textarea>
+                    <div className="message">
+                        {/* <label htmlFor="message">Message</label> */}
+                        <textarea rows="5" name=" Message" placeholder="Name" value={this.state.message} onChange={this.onMessageChange.bind(this)}></textarea>
                     </div>
-                    <button type="submit" disabled={this.state.disabled}>{this.state.sending ? "Sending..." : "Submit"}</button>
+                    <button className="submit" type="submit" disabled={this.state.disabled}>{this.state.sending ? "Sending..." : "Submit"}</button>
                 </form>
                 <div className={this.state.sent ? '' : 'invisible'}>
                     <p>Thank you for reaching out!</p>

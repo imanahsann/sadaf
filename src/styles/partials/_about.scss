@@ -6,8 +6,17 @@
     max-width: 300px;
 }
 
+.about p:first-child {
+    margin-top: 0;
+}
+
 .about-container {
     padding: 0 0 0 20px;
     font-size: 1.3rem;
     font-weight: 100;
+}
+
+.about-container .wrapper {
+    padding: 0;
+    margin: auto;
 }

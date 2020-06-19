@@ -11,7 +11,6 @@ class About extends Component {
                 <div className="about-container">
                     <div className="bio" dangerouslySetInnerHTML={{ __html: this.props.bio}}>
                     </div>
-                    <Contact />
                 </div>
             </div>
         );

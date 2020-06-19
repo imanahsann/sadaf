@@ -16,8 +16,10 @@ footer .wrapper {
 
 footer a {
     color: $highlight-color;
-}
-
-footer a:hover {
+    &.active {
+        font-weight: 400;
+    }
+    &:hover {
     opacity: 0.5;
+    }
 }
