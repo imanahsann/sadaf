@@ -6,12 +6,15 @@ $highlight-color: #FDA4C3;
 $pastel-option: #FDE8A4;
 $pastel-secondary-option: #F1D7F8;
 $pastel-tertiary-option: #CFFAD5;
+$pastel-bonus: #FFDFD3;
+$pastel: #FEC8D8;
+$pastel-bonus-two: #e2e7ff;
 
 $break-xlarge: 1200px;
 $break-large: 992px;
 $break-medium: 768px;
 $break-small: 576px;
-$break-xsmall: 320px;
+$break-xsmall: 400px;
 
 html {
     font-size: 62.5%;
@@ -30,6 +33,17 @@ body {
     max-width: 1280px;
     margin: 50px auto 103px;
     padding: 0 100px;
+    @media (max-width: $break-large) {
+        padding: 0 50px;
+    }
+    @media (max-width: $break-small) {
+        margin: 50px auto 60px;
+        padding: 0 20px;
+    }
+    @media (max-width: $break-xsmall) {
+        margin: 20px auto 48px;
+        padding: 0 10px;
+    }
 }
 
 img {
@@ -52,6 +66,9 @@ h1 {
     padding: 0;
     margin: 0;
     text-align: center;
+    @media (max-width: $break-xsmall) {
+        font-size: 6.5rem;
+    }
 }
 
 .invisible {
@@ -103,42 +120,4 @@ h1 {
 
 .loading.articleGrid, .loading.pagination {
     display: none;
-}
-
-nav {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    display: inline-block;
-}
-
-nav.main li:after {
-    content: '-';
-    padding: 0 15px;
-}
-
-nav.main li:last-child::after {
-    content: '';
-}
-
-nav.social {
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-}
-
-nav.social li {
-    padding: 0 7.5px;
-}
-
-nav.social li:last-child {
-    padding-right: 0;
 }

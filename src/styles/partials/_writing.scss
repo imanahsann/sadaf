@@ -25,21 +25,33 @@
         background: $highlight-color;
         border: 1px solid $highlight-color;
     }
-    &:nth-child(2) li, &:nth-child(6) li  {
+    &:nth-child(2) li  {
         background: $accent-color;
         border: 1px solid $accent-color;
     }
-    &:nth-child(3) li, &:nth-child(7) li  {
+    &:nth-child(3) li  {
         background: $pastel-option;
         border: 1px solid $pastel-option;
     }
-    &:nth-child(4) li, &:nth-child(8) li  {
+    &:nth-child(4) li  {
         background: $pastel-secondary-option;
         border: 1px solid $pastel-secondary-option;
     }
     &:nth-child(5) li {
         background: $pastel-tertiary-option;
         border: 1px solid $pastel-tertiary-option;
+    }
+    &:nth-child(6) li {
+        background: $pastel-bonus;
+        border: 1px solid $pastel-bonus;
+    }
+    &:nth-child(7) li {
+        background: $pastel;
+        border: 1px solid $pastel;
+    }
+    &:nth-child(8) li {
+        background: $pastel-bonus-two;
+        border: 1px solid $pastel-bonus-two;
     }
     li.active {
         border: 1px solid $secondary-color;
@@ -58,11 +70,23 @@
     display: flex;
     flex-wrap: wrap;
     margin: 45px 0 0 0;
+    @media (max-width: $break-small) {
+        margin: 20px 0 0 0;
+    }
+    @media (max-width: $break-xsmall) {
+        margin: 15px 0 0 0;
+    }
 }
 
 .pagination {
     margin: 0 0 83px 0;
     font-size: 1.1rem;
+    @media (max-width: $break-small) {
+        margin: 0 0 73px 0;
+    }
+    @media (max-width: $break-xsmall) {
+        margin: 0 0 60px 0;
+    }
 }
 
 .pagination ul {
@@ -70,15 +94,13 @@
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (max-width: $break-xsmall) {
+        margin-top: 0;
+    }
 }
 
 .pagination li {
     display: inline-block;
-    // opacity: 1;
-    // transition: opacity 0.3s;
-    // &:hover {
-    //     opacity: 0.7;
-    // }
 }
 
 .pagination a {

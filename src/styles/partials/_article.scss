@@ -33,6 +33,12 @@
         margin-right: 0;
         margin-bottom: 40px;
     }
+    @media screen and (max-width: $break-small) {
+        margin-bottom: 30px;
+    }
+    @media screen and (max-width: $break-small) {
+        margin-bottom: 20px;
+    }
 }
 
 .article a {
@@ -52,6 +58,12 @@
 
 .article .image {
     height: 150px;
+    @media screen and (max-width: $break-large) {
+        height: 250px;
+    }
+    @media screen and (max-width: $break-small) {
+        height: 200px;
+    }
 }
 
 .article .imageContainer {

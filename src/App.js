@@ -38,6 +38,7 @@ class App extends Component {
         arts: {},
         news: {},
         interviews: {},
+        pop: {},
         food: {}
       },
       // total pages
@@ -86,41 +87,43 @@ class App extends Component {
     }
 
     // check if articles already cached
-    if (this.state.articleCache[filter][page]) {
-      this.setState({
-        articles: this.state.articleCache[filter][page].articles,
-        totalPages: this.state.articleCache[filter][page].totalPages,
-        currentPage: page,
-        category: category,
-        tag: tag,
-        filter: filter,
-        loading: false
-      })
-    }
-
-    // if not, retrieve articles and cache
-    else {
-      let articleCacheUpdate = this.state.articleCache;
-      axios({
-        url: url,
-        method: 'GET',
-        dataType: 'json'
-      }).then((response) => {
-        articleCacheUpdate[filter][page] = {
-          articles: response.data,
-          totalPages: response.headers['x-wp-totalpages']
-        };
+    if (this.state.articleCache[filter]) {
+      if (this.state.articleCache[filter][page]) {
         this.setState({
-          articles: response.data,
-          totalPages: response.headers['x-wp-totalpages'],
+          articles: this.state.articleCache[filter][page].articles,
+          totalPages: this.state.articleCache[filter][page].totalPages,
           currentPage: page,
           category: category,
           tag: tag,
           filter: filter,
-          loading: false,
-          articleCache: articleCacheUpdate
-        });
-      })
+          loading: false
+        })
+      }
+
+      // if not, retrieve articles and cache
+      else {
+        let articleCacheUpdate = this.state.articleCache;
+        axios({
+          url: url,
+          method: 'GET',
+          dataType: 'json'
+        }).then((response) => {
+          articleCacheUpdate[filter][page] = {
+            articles: response.data,
+            totalPages: response.headers['x-wp-totalpages']
+          };
+          this.setState({
+            articles: response.data,
+            totalPages: response.headers['x-wp-totalpages'],
+            currentPage: page,
+            category: category,
+            tag: tag,
+            filter: filter,
+            loading: false,
+            articleCache: articleCacheUpdate
+          });
+        })
+      }
     }
   };
 

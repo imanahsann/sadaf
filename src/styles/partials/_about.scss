@@ -1,9 +1,15 @@
 .about {
     display: flex;
+    @media (max-width: $break-small) {
+        flex-direction: column;
+    }
 }
 
 .about img {
     max-width: 300px;
+    @media (max-width: $break-small) {
+        max-width: 100%;
+    }
 }
 
 .about p:first-child {
@@ -14,9 +20,21 @@
     padding: 0 0 0 20px;
     font-size: 1.3rem;
     font-weight: 100;
+    @media (max-width: $break-small) {
+        padding: 20px 0 0 0;
+    }
+    @media (max-width: $break-xsmall) {
+        padding: 10px 0 0 0;
+    }
 }
 
 .about-container .wrapper {
     padding: 0;
     margin: auto;
+}
+
+.avatar-container {
+    @media (max-width: $break-small) {
+        text-align: center;
+    }
 }

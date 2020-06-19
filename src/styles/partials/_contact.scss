@@ -4,6 +4,9 @@
 
 .contact.wrapper {
     max-width: 800px;
+    @media (max-width: $break-large) {
+        max-width: 700px;
+    }
 }
 
 form {
@@ -14,10 +17,17 @@ form {
 .name, .email {
     flex: calc(50% - 7.5px) 0 0;
     max-width: 292.5px;
+    @media (max-width: $break-small) {
+        flex: 100%;
+        max-width: none;
+    }
 }
 
 .name {
     margin-right: 15px;
+    @media (max-width: $break-small) {
+        margin-right: 0;
+    }
 }
 
 .message, .submit {
