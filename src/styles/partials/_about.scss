@@ -1,12 +1,15 @@
 .about {
     display: flex;
-    @media (max-width: $break-small) {
+    @media (max-width: $break-medium) {
         flex-direction: column;
     }
 }
 
 .about img {
     max-width: 300px;
+    @media (max-width: $break-medium) {
+        max-width: 500px;
+    }
     @media (max-width: $break-small) {
         max-width: 100%;
     }
@@ -28,7 +31,7 @@
     padding: 0 0 0 20px;
     font-size: 1.3rem;
     font-weight: 100;
-    @media (max-width: $break-small) {
+    @media (max-width: $break-medium) {
         padding: 20px 0 0 0;
     }
     @media (max-width: $break-xsmall) {
@@ -42,7 +45,7 @@
 }
 
 .avatar-container {
-    @media (max-width: $break-small) {
+    @media (max-width: $break-medium) {
         text-align: center;
     }
 }

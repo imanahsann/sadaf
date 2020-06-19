@@ -36,6 +36,9 @@ body {
     @media (max-width: $break-large) {
         padding: 0 50px;
     }
+    @media (max-width: $break-medium) {
+        margin: 50px auto 70px;
+    }
     @media (max-width: $break-small) {
         margin: 50px auto 60px;
         padding: 0 20px;
