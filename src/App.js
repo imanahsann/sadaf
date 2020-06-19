@@ -151,7 +151,7 @@ class App extends Component {
                 {...props}
                 image={this.state.image}
                 bio={this.state.bio}
-
+                loading={this.state.loading}
               />} />
 
               <Route path="/contact" component={Contact} />

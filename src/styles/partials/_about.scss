@@ -16,6 +16,14 @@
     margin-top: 0;
 }
 
+.about a {
+    color: $secondary-color;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .about-container {
     padding: 0 0 0 20px;
     font-size: 1.3rem;
