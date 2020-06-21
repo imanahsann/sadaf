@@ -35,11 +35,11 @@ class App extends Component {
         featured: {},
         recent: {},
         reviews: {},
-        arts: {},
+        tvmovies: {},
         news: {},
-        interviews: {},
+        profiles: {},
         pop: {},
-        food: {}
+        life: {}
       },
       // total pages
       totalPages: undefined,
