@@ -44,13 +44,13 @@ class App extends Component {
       // total pages
       totalPages: undefined,
       // current page
-      currentPage: 1,
+      currentPage: undefined,
       // category
-      category: 6,
+      category: undefined,
       // tag
       tag: undefined,
       // active filter
-      filter: 'featured'
+      filter: undefined
     }
   }
 
@@ -164,7 +164,8 @@ class App extends Component {
                 articleCache={this.state.articleCache}
                 totalPages={this.state.totalPages}
                 currentPage={queryString.parse(props.location.search).page}
-                category={queryString.parse(props.location.search).category} tag={queryString.parse(props.location.search).tag}
+                category={queryString.parse(props.location.search).category}
+                tag={queryString.parse(props.location.search).tag}
                 filter={queryString.parse(props.location.search).filter}
               />} />
 

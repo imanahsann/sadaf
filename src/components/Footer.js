@@ -10,7 +10,7 @@ class Footer extends Component {
                     <nav className="main">
                         <ul>
                             <li><NavLink to="/about" activeClassName="active">About</NavLink></li>
-                            <li><NavLink exact to="/" activeClassName="active">Writing</NavLink></li>
+                            <li><NavLink exact to="/" activeClassName="active" isActive={(_, { pathname }) => ["/", "/writing"].includes(pathname)}>Writing</NavLink></li>
                             <li><NavLink to="/contact" activeClassName="active">Contact</NavLink></li>
                         </ul>
                     </nav>
